@@ -1,429 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="shortcut icon" href="assets/img/loguito.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/img/loguito.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-     
-       function validarLogin(){
-            var usuario = document.getElementById('userN').value;
-            var contrasenia = document.getElementById('passN').value;
-            var cerrar = document.getElementById('modal1').value;
-            if(usuario.length==0&&contrasenia.length==0){               
-                swal("¡Advertencia!", "Asegurate de no dejar espacios en blanco", "warning");
-            }
-            else{
-               swal({
-                position: 'top-end',
-                icon: 'success',
-                title: '¡Bienvenido '+usuario+'!',
-                showConfirmButton: false,
-                timer: 1000
-               }); 
-               setTimeout( function() { window.location.href = "index.html"; }, 1000 );
-            }  
+      function validarLogin() {
+        var usuario = document.getElementById("userN").value;
+        var contrasenia = document.getElementById("passN").value;
+        var cerrar = document.getElementById("modal1").value;
+        if (usuario.length == 0 && contrasenia.length == 0) {
+          swal(
+            "¡Advertencia!",
+            "Asegurate de no dejar espacios en blanco",
+            "warning"
+          );
+        } else {
+          swal({
+            position: "top-end",
+            icon: "success",
+            title: "¡Bienvenido " + usuario + "!",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+          setTimeout(function () {
+            window.location.href = "index.html";
+          }, 1000);
         }
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body style="background-color: #0a2344">
     <div>
-        <!-----MENU------>
-    <div class="container-fluid" style="position: fixed; z-index: 1; padding: 0; margin-top: -55px;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
+      <!-----MENU------>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
           <!--logo-->
-          <div class="col-auto text-center"><img src="assets/img/logo5.png" style="width: 100px; height: 40px; padding: 0; " class="img-responsive center-block">
-          </div>        
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <div class="col-auto text-center">
+            <img
+              src="assets/img/logo5.png"
+              style="width: 100px; height: 40px; padding: 0"
+              class="img-responsive center-block"
+            />
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="pages/about.html">About us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pages/service.html">Services</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="pages/contact.html">Contact us</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="pages/q&a.html">Q&A</a>
-            </li>             
+              </li>
             </ul>
+
+            <div class="d-flex">
+              <img
+                src="assets/img/logo8.png"
+                style="width: 30px; height: 30px"
+                class="img-responsive center-block"
+              /><button
+                type="button"
+                id="btnCargar"
+                value="levantarModal"
+                class="btn btn-light"
+                data-bs-toggle="modal"
+                data-bs-target="#modal1"
+              >
+                Log In
+              </button>
+            </div>
           </div>
-          
-          <div class="col-auto text-center"><img src="assets/img/logo8.png" style="width: 30px; height: 30px; " class="img-responsive center-block"><button type="button" id="btnCargar" value="levantarModal" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal1">Log In</button></div>
         </div>
       </nav>
-    </div>
-    <!---MODAL--->
-    <div class="modal fade" id="modal1" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Log In</h4>
-                    <input type="button" class="btn-close" data-bs-dismiss="modal">                    
-                </div>
-                <div class="modal-body">
-                    <form action="#" method="post">                   
-                           <label for="userN">User:</label>
-                           <input type="text" id="userN" name="user_name">                   
-                           <label for="passN">Password:</label>
-                           <input type="password" id="passN" name="pass_user">                    
-                       </form>
-                </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-success" value="Login" onclick="validarLogin()" id="btnLogin">
-                    <input type="button" class="btn btn-danger" value="Close" data-bs-dismiss="modal" id="btnClose">
-                </div>
-            </div>
-        </div>
-    </div>
-   
-    <!-----CAROUSSEL DE IMAGENES------>
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top: 60px; margin-bottom: 50px;">
+
+      <!---CARRUSEL--->
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide mb-5"
+        data-bs-ride="carousel"
+      >
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="assets/img/img4.jpg" class="d-block w-100" alt="...">
+            <img src="assets/img/img4.jpg" class="d-block w-100" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src="assets/img/img7.jpg" class="d-block w-100" alt="...">
+            <img src="assets/img/img7.jpg" class="d-block w-100" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src="assets/img/img1.jpg" class="d-block w-100" alt="...">
+            <img src="assets/img/img1.jpg" class="d-block w-100" alt="..." />
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
 
+      <!---MODAL--->
+      <div class="modal fade" id="modal1" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>Log In</h4>
+              <input type="button" class="btn-close" data-bs-dismiss="modal" />
+            </div>
+            <div class="modal-body">
+              <form action="#" method="post">
+                <label for="userN">User:</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="userN"
+                  name="user_name"
+                />
+                <label for="passN">Password:</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  id="passN"
+                  name="pass_user"
+                />
+              </form>
+            </div>
+            <div class="modal-footer">
+              <input
+                type="submit"
+                class="btn btn-success"
+                value="Login"
+                onclick="validarLogin()"
+                id="btnLogin"
+              />
+              <input
+                type="button"
+                class="btn btn-danger"
+                value="Close"
+                data-bs-dismiss="modal"
+                id="btnClose"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       <!-----SOBRE NOSOTROS------>
-<section id="testimonios" class="testimonios section-padding">
-  <div class="container" style="background-color: #e3e8ee; margin-bottom: 50px;">
-      <div class="row">
-          <div class="col-md-12" style="margin-bottom: 50px;">
-              <div class="section-header text-center pb-5" style="margin-top: 50px;">
-                  <h2>EL CAMBIO CLIMÁTICO Y LA CRISIS ECOLÓGICA, LOS GRANDES DESAFIOS</h2>
-                  <hr>
-                  <p>
-                    El cambio climático es un tema que se sitúa en el debate actual: ¿Sabemos de qué trata? ¿Cómo nos afecta? ¿Cuáles serán las consecuencias para el futuro?
-
-El cambio climático es la alteración del clima y las temperaturas de la tierra, principalmente afecta los ecosistemas, todos los cambios directa o indirectamente son producidor por actividad humana. Las consecuencias inmediatas son repercusiones nocivas en para el medio ambiente y los sistemas productivo.
-
-El cambio climático nos afecta a todos. El impacto potencial es enorme, principalmente repercute en la falta de agua potable, cambios en las condiciones para la producción de alimentos y el aumento de fenomenos naturales como inundaciones, tormentas, sequías y olas de calor. Es un fenómeno ambiental de profundas consecuencias económicas y sociales, sin embargo, los países más pobres están peor preparados para enfrentar los cambios, indudablemente sufrirán las peores consecuencias.
-
-El cambio climático y la creciente "crisis ecológica", junto con la pobreza y la desigualdad, son los principales desafíos de nuestra era a nivel ambiental, social y económico. Para hacerle frente tenemos que terminar con el actual paradigma de crecimiento y desarrollo basado en sistemas económicos, sociales y políticos desiguales en el acceso y distribución de los recursos naturales que contemplan violaciones de los derechos humanos, la degradación medioambiental y conflictos sociales.
-                  </p>
-
-              </div>
-              <div class="col-1 ms-auto mx-auto mt-auto">
+      <section id="testimonios" class="testimonios section-padding">
+        <div
+          class="container"
+          style="background-color: #e3e8ee; margin-bottom: 30px"
+        >
+          <div class="row">
+            <div class="col-md-12" style="margin-bottom: auto">
+              <div
+                class="section-header text-center pb-5"
+                style="margin-top: auto"
+              >
+                <h2>
+                  <br>EL CAMBIO CLIMÁTICO Y LA CRISIS ECOLÓGICA, LOS GRANDES
+                  DESAFIOS.
+                </h2>
+                <hr />
+                <p>
+                  El cambio climático es un tema que se sitúa en el debate
+                  actual: ¿Sabemos de qué trata? ¿Cómo nos afecta? ¿Cuáles serán
+                  las consecuencias para el futuro? El cambio climático es la
+                  alteración del clima y las temperaturas de la tierra,
+                  principalmente afecta los ecosistemas, todos los cambios
+                  directa o indirectamente son producidor por actividad humana.
+                  Las consecuencias inmediatas son repercusiones nocivas en para
+                  el medio ambiente y los sistemas productivo. El cambio
+                  climático nos afecta a todos. El impacto potencial es enorme,
+                  principalmente repercute en la falta de agua potable, cambios
+                  en las condiciones para la producción de alimentos y el
+                  aumento de fenomenos naturales como inundaciones, tormentas,
+                  sequías y olas de calor. Es un fenómeno ambiental de profundas
+                  consecuencias económicas y sociales, sin embargo, los países
+                  más pobres están peor preparados para enfrentar los cambios,
+                  indudablemente sufrirán las peores consecuencias. El cambio
+                  climático y la creciente "crisis ecológica", junto con la
+                  pobreza y la desigualdad, son los principales desafíos de
+                  nuestra era a nivel ambiental, social y económico. Para
+                  hacerle frente tenemos que terminar con el actual paradigma de
+                  crecimiento y desarrollo basado en sistemas económicos,
+                  sociales y políticos desiguales en el acceso y distribución de
+                  los recursos naturales que contemplan violaciones de los
+                  derechos humanos, la degradación medioambiental y conflictos
+                  sociales.
+                </p>
                 <a class="btn btn-success" href="pages/q&a.html">Aprende más</a>
               </div>
-          </div>
-      </div>
-  </div>
-</section>
-
-      <!-----RECONOCIMIENTOS------>
-      <section id="reconocimientos" class="reconocimientos section-padding" >
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-12 col-lg-4">
-                    <div class="card text-white text-center bg-dark pb-2">
-                        <div class="card-body">
-                            <i class="bi bi-globe2"></i>
-                            <h3 class="card-title">El Salvador: efectos del cambio climático sobre la agricultura</h3>
-                            <p class="lead">
-                              Al igual que el resto de los países centroamericanos, 
-                              El Salvador es altamente vulnerable a los efectos climáticos. 
-                              En años recientes este país ha visto aumentar el número y la intensidad de los  desastres naturales, 
-                              con sus altas repercusiones sobre la economía del país. Un sector que es  
-                              fundamental como proveedor de empleos y como impulsor del crecimiento económico es el agropecuario, 
-                              el cual es altamente dependiente del clima y sobre él se han contabilizado grandes pérdidas ante los efectos climáticos. 
-                              A futuro se espera que éstos se intensifiquen, que aumente la temperatura general y que la precipitación se reduzca.
-                            </p>
-                            <button class="btn btn-success text-dark"><a href="https://repositorio.cepal.org/handle/11362/25919">Leer más...</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-12 col-lg-4">
-                    <div class="card text-white text-center bg-dark pb-2">
-                        <div class="card-body">
-                            <i class="bi bi-globe2"></i>
-                            <h3 class="card-title">La Creciente Amenaza Climática</h3>
-                            <p class="lead">
-                                La amenaza climática ya es muy significativa para El Salvador y crecerá mucho más en las próximas décadas.
-                                Es vital, por lo tanto, que asumamos esta nueva realidad como nación para que podamos construir una economía
-                                resiliente al clima y un futuro viable para la población salvadoreña dentro de su territorio.
-                            </p>
-                            <button class="btn btn-success text-dark"><a href="http://www.aecid.sv/wp-content/uploads/2013/06/cuadernillo-ENCC.pdf">Leer más...</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-12 col-lg-4">
-                    <div class="card text-white text-center bg-dark pb-2">
-                        <div class="card-body">
-                            <i class="bi bi-globe2"></i>
-                            <h3 class="card-title">Cambio climático en El Salvador: Impactos, respuestas y desafíos para la reducción de la vulnerabilidad</h3>
-                            <p class="lead">
-                              En El Salvador, las tres manifestaciones principales de la
-                              variabilidad climática son el
-                              exceso y la falta de lluvias, así
-                              como el incremento de la temperatura; cada una de las cuales
-                              tiene implicaciones directas
-                              pero diferenciadas sobre la economía – particularmente en
-                              sectores productivos como el
-                              agrícola – y la población. 
-                            </p>
-                            <button class="btn btn-success text-dark"><a href="https://www.prisma.org.sv/wp-content/uploads/2020/02/Cambio_climatico_El_Salvador.pdf">Leer más...</a></button>
-                        </div>
-                    </div>
-                </div>
             </div>
+          </div>
         </div>
       </section>
-   
-<!---------PORTAFOLIO------>
-<section id="portafolio" class="portafolio section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-header text-center pb-5">
-                    <h2>Te puede Interesar</h2>
-                    <hr>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-4" >
-                <div class="card text-center bg-white pb-12">
-                    <div class="card-body text-dark">
-                        <div class="img-area mb-4">
-                            <img src="assets/img/img8.jpg">
-                    </div>
-                    <h3 class="card-title">Cambio Climático</h3>
-                    <p class="lead">Un repaso de la perspectiva de la organización de las naciones unidas sobre el cambio climático </p>
-                    <button class="btn btn-success text-dark"><a href="https://www.un.org/es/global-issues/climate-change">Leer más...</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-4" >
-            <div class="card text-center bg-white pb-12">
-                <div class="card-body text-dark">
-                    <div class="img-area mb-4">
-                        <img src="assets/img/p2.jpg">
-                </div>
-                <h3 class="card-title">Infrasónica </h3>
-                <p class="lead">UAV de gran altitud para el seguimiento de parámetros meteorológicos </p>
-                <button class="btn btn-success text-dark"><a href="https://infrasonica.org/en">Leer más...</a></button>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-md-12 col-lg-4" >
-        <div class="card text-center bg-white pb-12">
-            <div class="card-body text-dark">
-                <div class="img-area mb-4">
-                    <img src="assets/img/p4.jpg">
-            </div>
-            <h3 class="card-title">MERRA/AS</h3>
-            <p class="lead">Facilidad de acceso a más de 400 variables climáticas para cualquier lugar del mundo </p>
-            <button class="btn btn-success text-dark"><a href="https://technology.nasa.gov/patent/GSC-TOPS-53">Leer más...</a></button>
-        </div>
-    </div>
-</div>
-    </div>
-</section>
 
-<!-----CAROUSSEL DE TESTIMONIOS------>
-<section id="testimonios" class="testimonios section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-header text-center pb-5">
-                    <h2>Frases memorables</h2>
-                    <hr>                   
+      <!-----RECONOCIMIENTOS------>
+      <section
+        id="reconocimientos"
+        class="reconocimientos section-padding mb-5"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-4 d-flex mb-2">
+              <div class="card text-white text-center bg-dark pb-2">
+                <div class="card-body">
+                  <i class="bi bi-globe2"></i>
+                  <h3 class="card-title">
+                    El Salvador: efectos del cambio climático sobre la
+                    agricultura.
+                  </h3>
+                  <p class="lead">
+                    Al igual que el resto de los países centroamericanos, El
+                    Salvador es altamente vulnerable a los efectos climáticos.
+                    En años recientes este país ha visto aumentar el número y la
+                    intensidad de los desastres naturales, con sus altas
+                    repercusiones sobre la economía del país...
+                  </p>
+                  <a
+                    href="https://repositorio.cepal.org/handle/11362/25919"
+                    class="btn btn-success text-light text-decoration-none"
+                    >Leer más...</a
+                  >
                 </div>
+              </div>
             </div>
+            <div class="col-12 col-md-12 col-lg-4 d-flex mb-2">
+              <div class="card text-white text-center bg-dark pb-2">
+                <div class="card-body">
+                  <i class="bi bi-globe2"></i>
+                  <h3 class="card-title">La Creciente Amenaza Climática.</h3>
+                  <p class="lead">
+                    La amenaza climática ya es muy significativa para El
+                    Salvador y crecerá mucho más en las próximas décadas. Es
+                    vital, por lo tanto, que asumamos esta nueva realidad como
+                    nación para que podamos construir una economía resiliente al
+                    clima y un futuro viable para la población salvadoreña
+                    dentro de su territorio...
+                  </p>
+                  <a
+                    href="http://www.aecid.sv/wp-content/uploads/2013/06/cuadernillo-ENCC.pdf"
+                    class="btn btn-success text-light text-decoration-none"
+                    >Leer más...</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 d-flex">
+              <div class="card text-white text-center bg-dark pb-2">
+                <div class="card-body">
+                  <i class="bi bi-globe2"></i>
+                  <h3 class="card-title">
+                    Cambio climático en El Salvador: Impactos, respuestas y
+                    desafíos para la reducción de la vulnerabilidad.
+                  </h3>
+                  <p class="lead">
+                    En El Salvador, las tres manifestaciones principales de la
+                    variabilidad climática son el exceso y la falta de lluvias,
+                    así como el incremento de la temperatura; cada una de las
+                    cuales tiene implicaciones directas...
+                  </p>
+                  <a
+                    href="https://www.prisma.org.sv/wp-content/uploads/2020/02/Cambio_climatico_El_Salvador.pdf"
+                    class="btn btn-success text-light text-decoration-none"
+                    >Leer más...</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      </section>
+
+      <!---------PORTAFOLIO------>
+      <section id="portafolio" class="portafolio section-padding mb-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-header text-center text-light pb-5">
+                <h2>Te puede Interesar</h2>
+                <hr />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-4 d-flex mb-2">
+              <div class="card text-center bg-white pb-12">
+                <div class="card-body text-dark">
+                  <div class="img-area mb-4">
+                    <img src="assets/img/img8.jpg" />
+                  </div>
+                  <h3 class="card-title">Cambio Climático</h3>
+                  <p class="lead">
+                    Un repaso de la perspectiva de la organización de las
+                    naciones unidas sobre el cambio climático
+                  </p>
+                  <a
+                    href="https://www.un.org/es/global-issues/climate-change"
+                    class="btn btn-success text-light text-decoration-none"
+                    >Leer más...</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 d-flex mb-2">
+              <div class="card text-center bg-white pb-12">
+                <div class="card-body text-dark">
+                  <div class="img-area mb-4">
+                    <img src="assets/img/p2.jpg" />
+                  </div>
+                  <h3 class="card-title">Infrasónica</h3>
+                  <p class="lead">
+                    UAV de gran altitud para el seguimiento de parámetros
+                    meteorológicos
+                  </p>
+                  <a
+                    href="https://infrasonica.org/en"
+                    class="btn btn-success text-light text-decoration-none"
+                    >Leer más...</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 d-flex">
+              <div class="card text-center bg-white pb-12">
+                <div class="card-body text-dark">
+                  <div class="img-area mb-4">
+                    <img src="assets/img/p4.jpg" />
+                  </div>
+                  <h3 class="card-title">MERRA/AS</h3>
+                  <p class="lead">
+                    Facilidad de acceso a más de 400 variables climáticas para
+                    cualquier lugar del mundo
+                  </p>
+                  <a
+                    href="https://technology.nasa.gov/patent/GSC-TOPS-53"
+                    class="btn btn-success text-light text-decoration-none"
+                    >Leer más...</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-----CAROUSSEL DE TESTIMONIOS------>
+      <section id="testimonios" class="testimonios section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-header text-center text-light pb-5">
+                <h2>Frases memorables</h2>
+                <hr />
+              </div>
+            </div>
+          </div>
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
             </div>
-            <div class="carousel-inner text-center" style="padding-bottom: 50px; padding-top: 50px; background-color: #888a8f;">
-              <div class="carousel-item active" >
-                <div class="w-50" style="margin: 0px auto;">
-                    <h1>Al Gore (2006)</h1>
-                    <p>“Los fenómenos naturales serán cada vez más extremos”.</p>
+            <div
+              class="carousel-inner text-center"
+              style="
+                padding-bottom: 50px;
+                padding-top: 50px;
+                background-color: #888a8f;
+              "
+            >
+              <div class="carousel-item active">
+                <div class="w-50" style="margin: 0px auto">
+                  <h1>Al Gore (2006)</h1>
+                  <p>“Los fenómenos naturales serán cada vez más extremos”.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <div class="w-50" style="margin: 0px auto;">
-                    <h1>François Holland</h1>
-                    <p>“Tenemos una única misión: proteger y entregar el planeta a la próxima generación”</p>
+                <div class="w-50" style="margin: 0px auto">
+                  <h1>François Holland</h1>
+                  <p>
+                    “Tenemos una única misión: proteger y entregar el planeta a
+                    la próxima generación”
+                  </p>
                 </div>
               </div>
               <div class="carousel-item">
-                <div class="w-50" style="margin: 0px auto;">
-                    <h1>Leonardo Di Caprio</h1>
-                    <p>“La destrucción de nuestro planeta continúa a un paso que ya no nos podemos permitir ignorar”</p>
+                <div class="w-50" style="margin: 0px auto">
+                  <h1>Leonardo Di Caprio</h1>
+                  <p>
+                    “La destrucción de nuestro planeta continúa a un paso que ya
+                    no nos podemos permitir ignorar”
+                  </p>
                 </div>
               </div>
             </div>
-            
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-    </div>
-</section>
+        </div>
+      </section>
 
-<!---------FOOTER----------->
-<div class="container my-5">
-    <footer
-            class="text-center text-lg-start text-white"
-            style="background-color: #45526e">
-      <div class="container p-4 pb-0">
-     
-        <section class="">    
-          <div class="row">
-            <hr class="w-100 clearfix d-md-none" />
+      <!---------FOOTER----------->
+      <div class="container my-5">
+        <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #45526e"
+        >
+          <div class="container p-4 pb-0">
+            <section class="">
+              <div class="row">
+                <hr class="w-100 clearfix d-md-none" />
 
-            <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mt-6">
-              <h6 class="text-uppercase mb-4 font-weight-bold">Team:</h6>
-              <p>
-                <a class="text-white">Jimena Esmeralda López Torres</a>
-              </p>
-              <p>
-                <a class="text-white">Oscar Orlando Flamenco</a>
-              </p>
-              <p>
-                <a class="text-white">Ariel Abimelec Martínez Torres</a>
-              </p>
-              <p>
-                <a class="text-white">Jonathan Enrique Cunza Fraile</a>
-              </p>
-            </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mt-6">
+                  <h6 class="text-uppercase mb-4 font-weight-bold">Team:</h6>
+                  <p>
+                    <a class="text-white">Jimena Esmeralda López Torres</a>
+                  </p>
+                  <p>
+                    <a class="text-white">Oscar Orlando Flamenco</a>
+                  </p>
+                  <p>
+                    <a class="text-white">Jonathan Enrique Cunza Fraile</a>
+                  </p>
+                </div>
 
-            <hr class="w-100 clearfix d-md-none" />
+                <hr class="w-100 clearfix d-md-none" />
 
-            <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mt-6">
-              <h6 class="text-uppercase mb-4 font-weight-bold">
-                ID:
-              </h6>
-              <p>
-                <a class="text-white">195218</a>
-              </p>
-              <p>
-                <a class="text-white">302418</a>
-              </p>
-              <p>
-                <a class="text-white">014720</a>
-              </p>
-              <p>
-                <a class="text-white">021220</a>
-              </p>
-            </div>
+                <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mt-6">
+                  <h6 class="text-uppercase mb-4 font-weight-bold">ID:</h6>
+                  <p>
+                    <a class="text-white">195218</a>
+                  </p>
+                  <p>
+                    <a class="text-white">302418</a>
+                  </p>
+                  <p>
+                    <a class="text-white">021220</a>
+                  </p>
+                </div>
 
-            <hr class="w-100 clearfix d-md-none" />
-        </section>
-        <hr class="my-3">
-
-        <section class="p-3 pt-0">
-          <div class="row d-flex align-items-center">
-            <div class="col-md-7 col-lg-8 text-center text-md-start">
-              <div class="p-3">
-                © 2022 Copyright:
-                <a class="text-white" href="#">GRUPO DS21A</a>
+                <hr class="w-100 clearfix d-md-none" />
               </div>
-            </div>
-            <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
-              <a
-                 class="btn btn-outline-light btn-floating m-1"
-                 class="text-white"
-                 role="button"
-                 ><i class="bi bi-facebook text-white mx-1"></i
-                ></a>
+            </section>
+            <hr class="my-3" />
 
-                <a
-                class="btn btn-outline-light btn-floating m-1"
-                class="text-white"
-                role="button"
-                ><i class="bi bi-google text-white mx-1"></i
-               ></a>
-              
-              <a
-                 class="btn btn-outline-light btn-floating m-1"
-                 class="text-white"
-                 role="button"
-                 ><i class="bi bi-twitter text-white mx-1"></i
-                ></a>     
-            </div>
+            <section class="p-3 pt-0">
+              <div class="row d-flex align-items-center">
+                <div class="col-md-7 col-lg-8 text-center text-md-start">
+                  <div class="p-3">
+                    © 2022 Copyright:
+                    <a class="text-white" href="#">GRUPO DS21A</a>
+                  </div>
+                </div>
+                <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100086915900212"
+                    target="_blank"
+                    class="btn btn-outline-light btn-floating m-1"
+                    class="text-white"
+                    role="button"
+                    ><i class="bi bi-facebook text-white mx-1"></i
+                  ></a>
+
+                  <a
+                    href="https://wa.link/kopefz"
+                    target="_blank"
+                    class="btn btn-outline-light btn-floating m-1"
+                    class="text-white"
+                    role="button"
+                    ><i class="bi bi-whatsapp"></i>
+                  </a>
+                </div>
+              </div>
+            </section>
           </div>
-        </section>
+        </footer>
       </div>
-    </footer>
-  </div>
-</div>
+    </div>
     <!-- Messenger plugin del chat Code -->
     <div id="fb-root"></div>
 
     <!-- Your plugin del chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
 
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
+      var chatbox = document.getElementById("fb-customer-chat");
       chatbox.setAttribute("page_id", "108618615377439");
       chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
     <script>
-      window.fbAsyncInit = function() {
+      window.fbAsyncInit = function () {
         FB.init({
-          xfbml            : true,
-          version          : 'v15.0'
+          xfbml: true,
+          version: "v15.0",
         });
       };
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js';
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js";
         fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+      })(document, "script", "facebook-jssdk");
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
